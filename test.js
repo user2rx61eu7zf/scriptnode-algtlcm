@@ -33,7 +33,7 @@ async function test ()
     const end = text.indexOf("Jour(s)");
     const nbr_jours_rest = text.substring(start, end).trim();
     console.log(nbr_jours_rest,"jours"); 
-    if(nbr_jours_rest == 1){send_msg()}
+    if(nbr_jours_rest == 0){send_msg()}
     else{console.log("machi lyoum tekmel l'internet")};
     /*verification de si on on peut nselfou ou non
     await page.click("[class=btn-ars]");
