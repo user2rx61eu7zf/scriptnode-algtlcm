@@ -10,6 +10,7 @@ const url1 = 'https://client.algerietelecom.dz/fr/login';
 async function test () 
 {
     const browser = await puppeteer.launch({
+        headless: "new",
         args: [
           "--disable-setuid-sandbox",
           "--no-sandbox",
@@ -31,6 +32,7 @@ async function test ()
     if(page.url() == url1){{
         do {
              await page.goto('https://client.algerietelecom.dz/fr');
+             await page.waitForSelector('#nd');
              await page.type('#nd',"046942110");
              await page.type('#password',"0121510848");
              await page.keyboard.press('Enter');
@@ -46,7 +48,7 @@ async function test ()
     const end = text.indexOf("Jour(s)");
     const nbr_jours_rest = text.substring(start, end).trim();
     console.log(nbr_jours_rest,"jours"); 
-    if(nbr_jours_rest == 1){send_msg()}
+    if(nbr_jours_rest == 0){send_msg()}
     else{console.log("machi lyoum tekmel l'internet")};
     /*verification de si on on peut nselfou ou non
     await page.click("[class=btn-ars]");
