@@ -4,11 +4,23 @@ const puppeteer=require('puppeteer');
 const { validateBody } = require('twilio/lib/webhooks/webhooks.js');
 const send_msg = require('./send_msg.js');
 const sleep = require('./sleep.js');
+require('dotenv').config
 const url1 = 'https://client.algerietelecom.dz/fr/login';
   
 async function test () 
 {
-    const browser = await puppeteer.launch({headless: false ,defaultViewport:false});
+    const browser = await puppeteer.launch({
+        args: [
+          "--disable-setuid-sandbox",
+          "--no-sandbox",
+          "--single-process",
+          "--no-zygote",
+        ],
+        executablePath:
+          process.env.NODE_ENV === "production"
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+      });
     const page = await browser.newPage();
     await page.goto('https://client.algerietelecom.dz/fr');
     await page.type('#nd',"046942110");
