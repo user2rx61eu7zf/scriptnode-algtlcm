@@ -1,3 +1,4 @@
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 const puppeteer = require('puppeteer');
 const sleep = require('./sleep.js');
 const send_msg = require('./send_msg.js');
