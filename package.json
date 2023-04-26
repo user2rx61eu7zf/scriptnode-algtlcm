@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chromium": "^3.0.3",
     "cron": "^2.3.0",
     "puppeteer": "^19.9.0",
     "twilio": "^4.10.0"
