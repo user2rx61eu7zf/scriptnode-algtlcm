@@ -1,3 +1,4 @@
+
 const { delay } = require('lodash');
 const puppeteer=require('puppeteer');
 const { validateBody } = require('twilio/lib/webhooks/webhooks.js');
@@ -7,7 +8,7 @@ const url1 = 'https://client.algerietelecom.dz/fr/login';
   
 async function test () 
 {
-    const browser = await puppeteer.launch({headless: false ,defaultViewport:false});
+    const browser = await puppeteer.launch({headless: false ,defaultViewport:false,executablePath: '/usr/bin/google-chrome-stable'});
     const page = await browser.newPage();
     await page.goto('https://client.algerietelecom.dz/fr');
     await page.type('#nd',"046942110");
