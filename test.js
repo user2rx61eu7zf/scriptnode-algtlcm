@@ -7,7 +7,7 @@ const url1 = 'https://client.algerietelecom.dz/fr/login';
   
 async function test () 
 {
-    const browser = await puppeteer.launch({headless: true,defaultViewport:false});
+    const browser = await puppeteer.launch({headless: false ,defaultViewport:false});
     const page = await browser.newPage();
     await page.goto('https://client.algerietelecom.dz/fr');
     await page.type('#nd',"046942110");

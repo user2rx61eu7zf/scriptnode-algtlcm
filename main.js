@@ -7,5 +7,5 @@ const cron = require('cron');
 
 test();
 console.log("date de l'exec", new Date());
-const job = new cron.CronJob('00 16 * * *', test);
+const job = new cron.CronJob('05 19 * * *', test);
 job.start();
