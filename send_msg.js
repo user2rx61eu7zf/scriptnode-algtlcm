@@ -3,7 +3,7 @@ function send_msg(message)
 // 1msg=0.273$
     {
         const accountSid = "AC0637184ea0c713f265f5bcdfa743caf5";
-        const authToken = "ff67cf6e34a790885a825fddfbc8e9ba";
+        const authToken = "0d7262d942868c2bb8dc60073f254166";
         const client = require('twilio')(accountSid, authToken);
         client.messages     
         .create({
