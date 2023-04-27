@@ -24,10 +24,12 @@ async function test ()
       });
     const page = await browser.newPage();
     await page.goto('https://client.algerietelecom.dz/fr');
+    await page.waitForSelector('#nd');
     await page.type('#nd',"046942110");
     await page.type('#password',"0121510848");
     await page.keyboard.press('Enter');
-    await sleep(1);
+    await page.waitForNavigation();
+  
     //tous ca psq des fois apres se connecter on tombe sur une page d'erreur (url1) et tant que on est pas sur le bon site (url2) on refait
     if(page.url() == url1){{
         do {
@@ -36,6 +38,7 @@ async function test ()
              await page.type('#nd',"046942110");
              await page.type('#password',"0121510848");
              await page.keyboard.press('Enter');
+             await page.waitForNavigation();
         } while (page.url()==url1);}}
     await sleep(10);
     //trouver l'element de la div items vals div flex et le console log
