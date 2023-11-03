@@ -6,24 +6,13 @@ const send_msg = require('./send_msg.js');
 const sleep = require('./sleep.js');
 require('dotenv').config
 const url1 = 'https://client.algerietelecom.dz/fr/login';
-  
+
 async function test () 
 {
-    const browser = await puppeteer.launch({
-        headless: "new",
-        args: [
-          "--disable-setuid-sandbox",
-          "--no-sandbox",
-          "--single-process",
-          "--no-zygote",
-        ],
-        executablePath:
-          process.env.NODE_ENV === "production"
-            ? process.env.PUPPETEER_EXECUTABLE_PATH
-            : puppeteer.executablePath(),
-      });
+  const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     await page.goto('https://client.algerietelecom.dz/fr');
+    await page.setViewport({width: 1080, height: 1024});
     await page.waitForSelector('#nd');
     await page.type('#nd',"046942110");
     await page.type('#password',"0121510848");
@@ -38,7 +27,7 @@ async function test ()
              await page.type('#nd',"046942110");
              await page.type('#password',"0121510848");
              await page.keyboard.press('Enter');
-             await page.waitForNavigation();
+             
         } while (page.url()==url1);}}
     await sleep(10);
     //trouver l'element de la div items vals div flex et le console log
